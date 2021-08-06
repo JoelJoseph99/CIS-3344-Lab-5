@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lab 5 Real Estate </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="homeJquery.js"></script>
+    <link href="home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="title" class="section">
+        <div class="container">
+            <br />
+            <br />
+            <h1 class="h1title"> Real Estate Management  </h1>
+            <h1 class="h1title"> Welcome </h1>
+            <h1 class="h1title"> <a href="../index.html">Home</a></h1>
+
+        </div>
+        <hr style="height:10px;border-width:0;color:gray;background-color:darkslategray">
+
+    </div>
+    <br />
+    <div id="addHomeID">
+        <!--Add Home Box-->
+        <form>
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Add a Home!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <i>Home Owner:</i> <input type="text" id="addOwner" required />
+            <br />
+            <br />
+            <i>Address of the New Home:</i> <input type="text" id="addAddress" required />
+            <br />
+            <br />
+            <i>City of the New Home:</i> <input type="text" id="addCity" required />
+            <br />
+            <br />
+            <i>State of the New Home:</i> <input type="text" id="addState" required />
+            <br />
+            <br />
+            <i>Type of House:</i>
+            <select id="typeHouse">
+                <option value="Pick Home Type">Pick Home Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Town House">Town House</option>
+
+            </select>
+            <br />
+            <br />
+            <i>Status of the Home:</i>
+            <select id="statusHome">
+                <option value="Pick Status">Pick Status</option>
+                <option value="Sale">Sale</option>
+                <option value="Sold">Sold</option>
+                <option value="Off the Market">Off the Market</option>
+                <option value="Rent">Rent</option>
+
+            </select>
+
+            <br />
+            <br />
+            <i>Description of the Home:</i> <textarea id="addDescriptionHome" cols="35"> </textarea>
+            <br />
+            <br />
+            <i>Price of the Home:</i> <input type="text" id="addPrice" required />
+            <br />
+            <br />
+            <i>Square Footage:</i> <input type="text" id="addFootager" required />
+            <br />
+            <br />
+            <i>Number of Bedrooms:</i> <input type="text" id="addBedrooms" required />
+            <br />
+            <br />
+            <i>Number of Bathrooms:</i> <input type="text" id="addBathrooms" required />
+            <br />
+            <br />
+            <i>Year the Home was Built:</i> <input type="text" id="addYear" required />
+            <br />
+            <br />
+            <i>Image Link:</i> <input type="text" id="addImage" required />
+            <br />
+            <br />
+            <i>Status:</i> <input type="text" id="addStatus" required />
+            <br />
+            <br />
+            <i>Zipcode:</i> <input type="text" id="addZipcode" required />
+            <br />
+            <br />
+            <input type="button" id="addHomeButton" value="Add Home" required />
+            <br />
+            <br />
+            <div id="displayAddHome"></div>
+
+        </form>
+        <hr style="height:10px;border-width:0;color:gray;background-color:darkslategray">
+
+        <!--deletes home-->
+    </div>
+    <div id="deleteHome">
+
+        <form>
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Delete A Home!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />
+            <i>Enter Home ID:</i> <input type="number" id="deleteHome" required />
+            <br />
+            <br />
+            <input type="button" id="deleteHomeButton" value="Delete Home" />
+            <div id="displayDeleteHome"></div>
+
+        </form>
+        <hr style="height:10px;border-width:0;color:gray;background-color:darkslategray">
+
+
+    </div>
+    <!--Form updates the HOme-->
+    <div id="updateHome">
+        <div id="title" class="section">
+            <div class="container">
+                <br />
+                <h1 class="h1title"> Update A Home!  </h1>
+
+                <br />
+            </div>
+        </div>
+        <br />
+        <br />
+        <form>
+            <i>Enter Current Home ID:</i> <input type="number" id="updateHomeID" required" />
+            <br />
+            <br />
+            <i>Enter New Home ID:</i> <input type="number" id="updateNewHomeID" required />
+            <br />
+            <br />
+            <i>Home Owner:</i> <input type="text" id="updateOwner" required />
+            <br />
+            <br />
+            <i>Address of the New Home:</i> <input type="text" id="updateAddress" required />
+            <br />
+            <br />
+            <i>City of the New Home:</i> <input type="text" id="updateCity" required />
+            <br />
+            <br />
+            <i>State of the New Home:</i> <input type="text" id="updateState" required />
+            <br />
+            <br />
+            <i>Type of House:</i>
+            <select id="typeHouse">
+                <option value="Pick Home Type">Pick Home Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Town House">Town House</option>
+
+            </select>
+            <br />
+            <br />
+            <i>Status of the Home:</i>
+            <select id="statusHome">
+                <option value="Pick Status">Pick Status</option>
+                <option value="Sale">Sale</option>
+                <option value="Sold">Sold</option>
+                <option value="Off the Market">Off the Market</option>
+                <option value="Rent">Rent</option>
+
+            </select>
+
+            <br />
+            <br />
+            <i>Description of the Home:</i> <textarea id="updateDescriptionHome" cols="35" required> </textarea>
+            <br />
+            <br />
+            <i>Price of the Home:</i> <input type="text" id="updatePrice" required />
+            <br />
+            <br />
+            <i>Square Footage:</i> <input type="text" id="updateFootager" required />
+            <br />
+            <br />
+            <i>Number of Bedrooms:</i> <input type="text" id="updateBedrooms" required />
+            <br />
+            <br />
+            <i>Number of Bathrooms:</i> <input type="text" id="updateBathrooms" required />
+            <br />
+            <br />
+            <i>Year the Home was Built:</i> <input type="text" id="updateYear" required />
+            <br />
+            <br />
+            <i>Image Link:</i> <input type="text" id="updateImage" required />
+            <br />
+            <br />
+            <i>Status:</i> <input type="text" id="updateStatus" required />
+            <br />
+            <br />
+            <i>Zipcode:</i> <input type="text" id="updateZipcode" required />
+            <br />
+            <br />
+            <input type="button" id="updateHomeButton" value="Update Home" required />
+            <br />
+            <br />
+            <hr style="height:10px;border-width:0;color:gray;background-color:white">
+            <div id="displayUpdateHome"></div>
+
+        </form>
+    </div>
+    <!--HouseType-->
+
+    <div id="searchType">
+        <form>
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Select the Type of House!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />
+            <i>Type of House:</i>
+            <br />
+
+            <select id="typeHouse">
+                <option value="Pick Home Type">Pick Home Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Town House">Town House</option>
+
+            </select>
+            <br />
+            <br />
+            <input type="button" id="searchHouse" value="House Type" />
+            <input type="button" id="closeSearch" value="Close List" />
+            <div id="displayTypeHome"></div>
+
+        </form>
+    </div>
+    <!--form finds the agent-->
+    <div id="agentHome">
+        <form>
+
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Enter A Real Estate Agents Name!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />
+            <i>Enter Real Estate Agent's Name:</i> <input type="text" id="agent" required />
+            <br />
+            <br />
+            <input type="button" id="REAgentButton" value="Look At Homes" />
+            <input type="button" id="closeButton" value="Close List" />
+            <div id="displayREAgent"></div>
+
+        </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr style="height:10px;border-width:0;color:gray;background-color:darkslategray">
+
+    <div id="searchHouse">
+        <form>
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Search A house by Entering the following!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <i>Price of the Home:</i> <input type="text" id="searchPrice" required />
+            <br />
+            <br />
+            <i>Number of Bedrooms:</i> <input type="text" id="searchBedrooms" required />
+            <br />
+            <br />
+            <i>Number of Bathrooms:</i> <input type="text" id="searchBathrooms" required />
+            <br />
+            <br />
+            <i>Please enter Square Footage:</i> <input type="text" id="searchSquareFootage" required />
+            <br />
+            <br />
+            <input type="button" id="searchButton" value="Look At Homes" />
+            <input type="button" id="searchCloseButton" value="Close List" />
+            <div id="displaySearchCriteria"></div>
+
+        </form>
+        <hr style="height:10px;border-width:0;color:gray;background-color:darkslategray">
+
+    </div>
+
+
+    <div id="statusHouse">
+        <form>
+            <div id="title" class="section">
+                <div class="container">
+                    <br />
+                    <h1 class="h1title"> Change the Status of your Home!  </h1>
+
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />            <i>Enter Home ID:</i> <input type="text" id="statusHomeID" required />
+            <br />
+            <br />
+            <div id="displayStatusHomeID"></div>
+
+            <br />
+            <i>Status of the Home:</i>
+            <select id="statusHome">
+                <option value="Pick Status">Pick Status</option>
+                <option value="Sale">Sale</option>
+                <option value="Sold">Sold</option>
+                <option value="Off the Market">Off the Market</option>
+                <option value="Rent">Rent</option>
+
+            </select>
+            <br />
+            <br />
+            <input type="button" id="statusButton" value="Click To Change" />
+            <div id="displayStatusHouse"></div>
+
+        </form>
+    </div>
+
+</body>
+</html>

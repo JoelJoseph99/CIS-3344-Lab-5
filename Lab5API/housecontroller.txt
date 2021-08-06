@@ -1,0 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Lab5_API.Modals;
+using Utilities;
+
+using System.Data;
+using System.Data.SqlClient;
+
+namespace Lab5_API.Controllers
+{
+    [Route("Lab5_API.Controllers/[controller]")]
+
+    public class HouseController : Controller
+    {
+        [HttpPost("NewHouse")] //route: Lab5_API.Controllers/House/NewHouse
+        //add house to db
+        public Boolean Post([FromBody]House house)
+        {
+            DBConnect db = new DBConnect();
+            string sql = "INSERT INTO HOUSES (HomeID, HomeOwner, RealEstateAgent, Address, City, State, Status, houseType, SquareFootage, numOfBedrooms, numofBathrooms, Year,  image,  price, zipcode, Description) " +
+                "VALUES (" + house.HomeID + ", '" + house.HomeOwner + "', '" + house.RealEstateAgent + "', '" + house.Address + "', '" + house.City + "', '" + house.State + "', '" + house.Status + "', '" + house.houseType + "', '" + house.SquareFootage
+                + "', '" + house.numOfBedrooms + "', '" + house.numOfBathrooms + "', '" + house.Year + "', '" + house.Image + "', '" + house.Price + "','" + house.ZipCode + "','" + house.Description + "')";
+            DataSet recordSet = db.GetDataSet(sql);
+            int result = db.DoUpdate(sql);
+
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        //[HttpPut("UpdateAvailability/{HomeID}")] //route:Lab5/Houses/UpdateAvailability/(homeid)
+        //public Boolean UpdateAvailability(int HomeID, [FromBody] House house)
+        //{
+
+         //   DBConnect db = new DBConnect();
+
+           // String sql = "UPDATE Houses SET Availability = '" + house.Availability + "' WHERE HomeID = " + HomeID;
+
+          //  int result = db.DoUpdate(sql);
+          //  if (result > 0)
+           //     return true;
+        
+          //  return false;
+
+      //  }
+
+        [HttpPut("UpdateHouse/{HomeID}")] //route: Lab5_API.Controllers/House/UpdateHouse/(homeid)
+        public Boolean Put(int HomeID, [FromBody] House house)
+        {
+
+            DBConnect db = new DBConnect();
+
+            String sql = "INSERT INTO HOUSES (HomeID, HomeOwner, RealEstateAgent, Address, City, State, Status, houseType, SquareFootage, numOfBedrooms, numofBathrooms, Year,  image,  price, zipcode, Description) " +
+                "VALUES (" + house.HomeID + ", '" + house.HomeOwner + "', '" + house.RealEstateAgent + "', '" + house.Address + "', '" + house.City + "', '" + house.State + "', '" + house.Status + "', '" + house.houseType + "', '" + house.SquareFootage
+                + "', '" + house.numOfBedrooms + "', '" + house.numOfBathrooms + "', '" + house.Year + "', '" + house.Image + "', '" + house.Price + "','" + house.ZipCode + "','" + house.Description + "')";
+
+            int result = db.DoUpdate(sql);
+            if (result > 0)
+                return true;
+
+            return false;
+
+        }
+        [HttpDelete("DeleteHouse/{HomeID}")] //route:Lab5/Houses/DeleteHouse/(homeid)
+        //delete house from database
+        public Boolean DeleteHouse (int homeID)
+        {
+            DBConnect db = new DBConnect();
+            string strSQL = "DELETE FROM Houses WHERE HomeID = " + homeID;
+            DataSet recordSet = db.GetDataSet(strSQL);
+
+            int result = db.DoUpdate(strSQL);
+
+            if (result > 0)
+                return true;
+
+            return false;
+        }
+
+
+        [HttpGet("pickHome/{homeType}")] //route:Lab5/Houses/pickHome/(homeType)
+        //gets house type from database
+        public Boolean pickHome (string homeType)
+        {
+            DBConnect db = new DBConnect();
+            string strSQL = "Pick FROM Houses WHERE homeType = " + homeType;
+            DataSet recordSet = db.GetDataSet(strSQL);
+
+            int result = db.DoUpdate(strSQL);
+
+            if (result > 0)
+                return true;
+
+            return false;
+        }
+        [HttpGet("getZipcode/{zipCode}")] //route:Lab5/Houses/getZipcode/(zipcode)
+        //gets house type from database
+        public Boolean getZipcode(int zipcode)
+        {
+            DBConnect db = new DBConnect();
+            string strSQL = "Pick FROM Houses WHERE homeType = " + zipcode;
+            DataSet recordSet = db.GetDataSet(strSQL);
+
+            int result = db.DoUpdate(strSQL);
+
+            if (result > 0)
+                return true;
+
+            return false;
+        }
+        [HttpGet("listHomePrice/{price}")] //route:Lab5/Houses/listHomePrice/(price)
+        //gets house price, rooms, and bathroom from database
+        public Boolean listHomePrice( int price,  int SquareFootage, string numOfBedrooms, string numOfBathrooms)
+        {
+            DBConnect db = new DBConnect();
+            string strSQL = "Pick FROM Houses WHERE Price = "+  price + SquareFootage + numOfBedrooms + numOfBathrooms;
+            DataSet recordSet = db.GetDataSet(strSQL);
+
+            int result = db.DoUpdate(strSQL);
+
+            if (result > 0)
+                return true;
+
+            return false;
+        }
+
+        [HttpGet("getHomeId/{homeID}")] //route:Lab5/Houses/getHomeId/(homeID)
+        //gets house price, rooms, and bathroom from database
+        public Boolean getHomeId(int homeId)
+        {
+            DBConnect db = new DBConnect();
+            string strSQL = "Pick FROM Houses WHERE homeID = " + homeId;
+            DataSet recordSet = db.GetDataSet(strSQL);
+
+            int result = db.DoUpdate(strSQL);
+
+            if (result > 0)
+                return true;
+
+            return false;
+        }
+
+    }
+}

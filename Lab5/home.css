@@ -1,0 +1,48 @@
+﻿body {
+    background-image: url('images/clouds.jpg');
+}
+#title {
+    background-image: url('images/title image.jpg');
+    font-family: 'Shadows Into Light', cursive;
+}
+
+#addHomeID{
+    text-align:center;
+}
+#deleteHome {
+    text-align: center;
+}
+
+#statusHouse {
+    text-align: center;
+}
+
+#updateHome {
+    text-align: center;
+}
+
+#title{
+    text-align:center;
+}
+
+i{
+font-weight:bold;
+}
+#searchHouse{
+    text-align:center;
+}
+
+#searchType {
+    position: absolute;
+    left: 150px;
+    width: 200px;
+    height: 120px;
+}
+
+#agentHome {
+    position: absolute;
+    right: 150px;
+    width: 200px;
+    height: 120px;
+
+}
